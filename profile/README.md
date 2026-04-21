@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://github.com/SPiceZ21/spz-core-media-kit/blob/main/Banner/Banner%232.png?raw=true" alt="SPiceZ-Core Banner" width="100%"/>
+<img src="https://github.com/SPiceZ21/spz-core-media-kit/blob/main/Banner/wip-banner.png?raw=true" alt="SPiceZ-Core Banner" width="100%"/>
 
 <br/>
 <br/>
