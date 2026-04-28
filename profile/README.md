@@ -1,116 +1,61 @@
-<div align="center">
+# <div align="center">
 
-<img src="https://github.com/SPiceZ21/spz-core-media-kit/blob/main/Banner/wip-banner.png?raw=true" alt="SPiceZ-Core Banner" width="100%"/>
-
-<br/>
-<br/>
-
-**An open source racing core for FiveM — modular, lightweight, and built purely for racing.**
-
-<br/>
-
-[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-orange.svg?style=flat-square)](https://www.gnu.org/licenses/gpl-3.0)
-[![FiveM](https://img.shields.io/badge/FiveM-Compatible-orange?style=flat-square)](https://fivem.net)
-[![Lua](https://img.shields.io/badge/Lua-5.4-blue?style=flat-square&logo=lua)](https://lua.org)
-[![Status](https://img.shields.io/badge/Status-In%20Development-yellow?style=flat-square)]()
-[![Discord](https://img.shields.io/badge/Discord-Join-5865F2?style=flat-square&logo=discord&logoColor=white)](https://discord.gg/)
+![SPiceZ-Core Banner](https://github.com/SPiceZ21/spz-core-media-kit/blob/main/Banner/spz-core-banner.png?raw=true)
 
 </div>
 
 ---
 
-## What is SPiceZ-Core?
+## 🎮 What is SPiceZ-Core?
 
-SPiceZ-Core (`spz-*`) is a **racing-only FiveM framework** — no jobs, no housing, no crime. Every system is designed from the ground up for one thing: competitive street racing.
-
-Inspired by the multi-repo structure of [qb-core](https://github.com/qbcore-framework/qb-core), SPiceZ-Core is a collection of standalone, opt-in modules that communicate through a clean exports and event API. Install only what you need. Replace what you don't like.
-
-> Think **Project Street** meets **Project Race** — but open source, fully modular, and built for the community.
+**SPiceZ-Core** (`spz-*`) is a **racing‑only FiveM framework** built from the ground up for competitive street racing. It follows a **module‑first** architecture: each feature lives in its own repository and can be enabled or disabled independently.
 
 ---
 
-## How It Works
-
-```
-Player joins → Safe Zone → Choose Mode
-                               │
-              ┌────────────────┴─────────────────┐
-              │                                  │
-          Freeroam                          Race Queue
-        Spawn car                        Poll opens (track + car)
-        Free drive                       Highest votes win
-                                         TP → isolated race world
-                                         Countdown → Race (no collision)
-                                         Finish → Stats + XP screen
-                                              │
-                                    TP back → Safe Zone
-                                    Intermission timer
-                                         │
-                                    ← Repeat →
-```
-
-Race worlds are fully isolated using **FiveM routing buckets** — racers exist in a separate dimension with no entity bleed from freeroam. No collision between racers is enforced server-side.
-
----
-
-## Modules
-
-All modules are separate repositories under this organization. Each one is opt-in — just add or remove it from your `server.cfg`.
-
-### Core
+## 📦 Current Modules
 
 | Repository | Description |
 |---|---|
-| [spz-core](https://github.com/SPiceZ-Core/spz-core) | Bootstrap, player sessions, state machine, routing bucket manager, event bus |
-| [spz-lib](https://github.com/SPiceZ-Core/spz-lib) | Shared utility library — callbacks, notify, timers, math helpers |
-
-### Gameplay Modules
-
-| Repository | Description |
-|---|---|
+| [spz-core](https://github.com/SPiceZ-Core/spz-core) | Core engine, player sessions, routing bucket manager, event bus |
+| [spz-lib](https://github.com/SPiceZ-Core/spz-lib) | Shared utilities – callbacks, timers, math helpers |
 | [spz-identity](https://github.com/SPiceZ-Core/spz-identity) | Player profiles, driver licenses, crew tags |
-| [spz-vehicles](https://github.com/SPiceZ-Core/spz-vehicles) | Vehicle class registry, stat sheets, spawn and despawn |
-| [spz-garage](https://github.com/SPiceZ-Core/spz-garage) | Owned vehicles, storage, impound |
-| [spz-tuning](https://github.com/SPiceZ-Core/spz-tuning) | Performance upgrades, dyno, engine / tires / aero |
-| [spz-races](https://github.com/SPiceZ-Core/spz-races) | Lobbies, poll system, countdown, checkpoints, timing engine, race state machine |
-| [spz-economy](https://github.com/SPiceZ-Core/spz-economy) | Credits wallet, entry fees, prize payouts, betting |
-| [spz-progression](https://github.com/SPiceZ-Core/spz-progression) | XP, driver rank tiers, license unlocks, Safety Rating, iRating |
-| [spz-leaderboard](https://github.com/SPiceZ-Core/spz-leaderboard) | Per-track records, global standings, session history |
-| [spz-weather](https://github.com/SPiceZ-Core/spz-weather) | Race-synced weather and time-of-day schedules |
+| [spz-vehicles](https://github.com/SPiceZ-Core/spz-vehicles) | Vehicle registry, stat sheets, spawn & despawn |
+| [spz-races](https://github.com/SPiceZ-Core/spz-races) | Lobby system, poll, countdown, checkpoints, timing engine |
+| [spz-progression](https://github.com/SPiceZ-Core/spz-progression) | XP, driver ranks, license unlocks, safety rating |
+| [spz-leaderboard](https://github.com/SPiceZ-Core/spz-leaderboard) | Per‑track records, global standings, session history |
+| [spz-weather](https://github.com/SPiceZ-Core/spz-weather) | Race‑synced weather & time‑of‑day schedules |
+| [spz-hud](https://github.com/SPiceZ-Core/spz-hud) | Speedometer, race overlay, poll UI, countdown, post‑race stats (React + Vite) |
+| [spz-menu](https://github.com/SPiceZ-Core/spz-menu) | Mode choice screen, freeroam spawner, garage menus |
 | [spz-admin](https://github.com/SPiceZ-Core/spz-admin) | Staff panel, force end race, spectate, ban management |
-
-### UI / NUI
-
-| Repository | Description |
-|---|---|
-| [spz-hud](https://github.com/SPiceZ-Core/spz-hud) | Speedometer, race overlay, poll UI, countdown, post-race stats — React + Vite |
-| [spz-menu](https://github.com/SPiceZ-Core/spz-menu) | Mode choice screen, freeroam spawner menu, garage menus |
-
-### Infrastructure
-
-| Repository | Description |
-|---|---|
-| [spz-txrecipe](https://github.com/SPiceZ-Core/spz-txrecipe) | txAdmin YAML recipe + auto-generated `server.cfg` |
-| [spz-docs](https://github.com/SPiceZ-Core/spz-docs) | Documentation site — API reference, install guide, module docs |
-| [.github](https://github.com/SPiceZ-Core/.github) | Org-wide issue templates, PR templates, funding |
+| [spz-txrecipe](https://github.com/SPiceZ-Core/spz-txrecipe) | txAdmin recipe + auto‑generated `server.cfg` |
+| [.github](https://github.com/SPiceZ-Core/.github) | Org‑wide issue & PR templates, funding docs |
 
 ---
 
-## Quick Start
+## ⚙️ Workflow Overview
 
-The fastest path to a running server is the **txAdmin recipe**.
+The repository uses **GitHub Actions** to automate CI, linting, and release publishing:
 
-1. Open **txAdmin** → _New Server_ → _Remote URL Template_
+- **`ci.yml`** – Runs on every push/PR, checks Lua syntax, runs unit tests (if any) and validates workflow definitions.
+- **`release.yml`** – Triggered when a new tag is pushed. It builds the release assets, creates a GitHub Release, and updates the `spz-txrecipe` YAML with the new version.
+
+> **Note:** All module repositories have their own CI pipelines; the central repo only validates shared assets and documentation.
+
+---
+
+## 🚀 Quick Start
+
+### Using the txAdmin Recipe (recommended)
+1. Open **txAdmin** → *New Server* → *Remote URL Template*.
 2. Paste the recipe URL:
    ```
    https://raw.githubusercontent.com/SPiceZ-Core/spz-txrecipe/main/spz-recipe.yaml
    ```
-3. Follow the wizard — it installs all dependencies (`oxmysql`, `ox_lib`), all `spz-*` modules, and creates the database tables automatically.
-4. Edit `resources/spz-core/config.lua` to configure your server.
+3. Follow the wizard – it installs all required dependencies (`oxmysql`, `ox_lib`), pulls every `spz-*` module, and creates the database tables automatically.
+4. Edit `resources/spz-core/config.lua` to fine‑tune your server settings.
 
 ### Manual Install
-
-Load order matters. Follow this sequence in `server.cfg`:
+Add the following resources to your `server.cfg` **in the exact order**:
 
 ```cfg
 # ── Dependencies ──────────────────────────────────────
@@ -118,20 +63,17 @@ ensure oxmysql
 ensure ox_lib
 ensure screenshot-basic        # optional
 
-# ── SPiceZ Core ───────────────────────────────────────
+# ── Core ───────────────────────────────────────
 ensure spz-lib
 ensure spz-core
 
 # ── Modules ───────────────────────────────────────────
 ensure spz-identity
 ensure spz-vehicles
-ensure spz-economy
-ensure spz-garage
-ensure spz-tuning
-ensure spz-races
 ensure spz-progression
+ensure spz-races
 ensure spz-leaderboard
-ensure spz-weather             # optional
+ensure spz-weather            # optional
 
 # ── UI ────────────────────────────────────────────────
 ensure spz-hud
@@ -143,34 +85,30 @@ ensure spz-admin
 
 ---
 
-## Tech Stack
+## 🛠️ Tech Stack
 
 | Layer | Technology |
 |---|---|
-| Server runtime | [FiveM](https://fivem.net) / [cfx-server](https://github.com/citizenfx/fivem) |
-| Language | Lua 5.4 |
-| Database | MySQL via [oxmysql](https://github.com/overextended/oxmysql) |
-| Shared utilities | [ox_lib](https://github.com/overextended/ox_lib) |
-| NUI frontend | React 18 + Vite + Framer Motion |
+| Server runtime | FiveM / Cfx‑server |
+| Language | Lua 5.4 |
+| Database | MySQL via `oxmysql` |
+| Shared utilities | `ox_lib` |
+| NUI frontend | React 18 + Vite + Framer Motion |
 | World isolation | FiveM routing buckets |
 
 ---
 
-## Design Principles
+## 🎨 Design Principles
 
-**No bloat.** SPiceZ-Core is racing-only. There are no job systems, housing, or crime mechanics — and there never will be.
-
-**Module-first.** Every feature lives in its own repository. You can run `spz-core` + `spz-races` + `spz-hud` with nothing else and have a fully working race server.
-
-**Event-driven.** Modules communicate only through registered events and exports. No module imports another module's files directly. Swapping or replacing any module is straightforward.
-
-**Config-driven.** All tunable values live in `config.lua` files. Nothing is hardcoded. Hot-reload is supported for non-structural config keys.
-
-**Server-authoritative.** Race positions, state transitions, checkpoint validation, and routing bucket assignments are all handled server-side. The client is never trusted for anything that affects race integrity.
+- **No bloat** – Racing‑only, no jobs/housing/crime.
+- **Module‑first** – Every feature is a standalone repo.
+- **Event‑driven** – Modules communicate exclusively through events/exports.
+- **Config‑driven** – All tunable values live in `config.lua` files; hot‑reload supported.
+- **Server‑authoritative** – Core race logic runs on the server; the client never decides race outcomes.
 
 ---
 
-## Project Status
+## 📈 Project Status
 
 | Module | Status |
 |---|---|
@@ -180,40 +118,32 @@ ensure spz-admin
 | spz-vehicles | 🟢 In Development |
 | spz-hud | 🟡 Testing |
 | spz-races | 🔵 Designing |
-| spz-economy | ⚪ Planned |
 | spz-progression | ⚪ Planned |
-| spz-garage | ⚪ Planned |
-| spz-tuning | ⚪ Planned |
-| spz-leaderboard | ⚪ Planned |
+| spz-weather | ⚪ Planned |
 | spz-admin | ⚪ Planned |
 | spz-menu | ⚪ Planned |
 | spz-docs | ⚪ Planned |
 
-> Track progress on the [GitHub Project Board](https://github.com/orgs/SPiceZ-Core/projects/1)
-
 ---
 
-## Contributing
+## 🤝 Contributing
 
-We welcome contributions of all kinds — bug reports, feature suggestions, documentation, and code.
-
-1. Read the [Contributing Guide](.github/CONTRIBUTING.md)
-2. Check the [Project Board](https://github.com/orgs/SPiceZ-Core/projects/1) for open tasks
-3. Open an issue before starting work on a large feature — discuss the approach first
-4. Follow the Lua style guide in each repository's `CONTRIBUTING.md`
+We welcome contributions of any kind:
+1. Read the [Contributing Guide](.github/CONTRIBUTING.md).
+2. Check the [Project Board](https://github.com/orgs/SPiceZ-Core/projects/1) for open tasks.
+3. Open an issue before starting large work.
+4. Follow the Lua style guide in each repo’s `CONTRIBUTING.md`.
 
 **Before submitting a PR:**
-- Test on a local FiveM server
-- Verify no other `spz-*` module is broken by your change
-- Add or update documentation if you're changing an export or event
+- Test on a local FiveM server.
+- Ensure no other `spz-*` module is broken by your change.
+- Update documentation if you modify an export or event.
 
 ---
 
-## License
+## 📄 License
 
-All SPiceZ-Core repositories are licensed under the **GNU General Public License v3.0**.
-
-See [LICENSE](LICENSE) for details. You are free to use, modify, and distribute this software under the same license. You may **not** sell SPiceZ-Core or its modules as a closed-source product.
+All SPiceZ‑Core repositories are licensed under the **GNU GPL v3**. See the [LICENSE](LICENSE) file for details. You may **not** sell SPiceZ‑Core or its modules as a closed‑source product.
 
 ---
 
