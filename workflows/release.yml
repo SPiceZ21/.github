@@ -45,6 +45,29 @@ jobs:
             echo "::endgroup::"
           done
 
+        - name: Run UI post-build scripts
+          run: |
+            UI_DIRS=(
+              "spz-carspawner/ui"
+              "spz-leaderboard/ui"
+              "spz-speedometer/ui"
+              "spz-nametag/ui"
+              "spz-spawn/ui"
+              "spz-poll/ui"
+              "spz-raceUI/ui"
+              "spz-stance/html"
+            )
+            for dir in "${UI_DIRS[@]}"; do
+              script_path="${dir}/post-build.sh"
+              if [ -x "$script_path" ]; then
+ 
+                (cd "$dir" && "./post-build.sh")
+                echo "::endgroup::"
+              else
+                echo "No executable post-build script in $dir, skipping."
+              fi
+            done
+
       # ── Derive release tag from CalVer + run number ─────────────
       - name: Set release tag
         id: tag
