@@ -1,0 +1,184 @@
+name: Build & Release
+
+on:
+  push:
+    branches: [main, master]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # ── Build all UIs ───────────────────────────────────────────
+      - name: Build UIs
+        run: |
+          UI_DIRS=(
+            "spz-carspawner/ui"
+            "spz-leaderboard/ui"
+            "spz-speedometer/ui"
+            "spz-nametag/ui"
+            "spz-spawn/ui"
+            "spz-poll/ui"
+            "spz-raceUI/ui"
+            "spz-stance/html"
+          )
+          for dir in "${UI_DIRS[@]}"; do
+            echo "::group::Building $dir"
+            cd "$dir"
+            npm ci
+            npm run build
+            cd -
+            echo "::endgroup::"
+          done
+
+      # ── Derive release tag from CalVer + run number ─────────────
+      - name: Set release tag
+        id: tag
+        run: |
+          TAG="v$(date +'%Y.%m.%d')-${{ github.run_number }}"
+          echo "tag=$TAG" >> $GITHUB_OUTPUT
+          echo "Release tag: $TAG"
+
+      # ── Extract per-resource versions from fxmanifest.lua ───────
+      - name: Extract versions
+        id: versions
+        run: |
+          extract() {
+            grep -m1 "^version" "$1/fxmanifest.lua" 2>/dev/null \
+              | grep -oP "[0-9]+\.[0-9]+\.[0-9]+" || echo "unknown"
+          }
+
+          RESOURCES=(
+            spz-appearance spz-carspawner spz-core spz-identity
+            spz-leaderboard spz-lib spz-loading spz-log spz-nametag
+            spz-nos spz-physics spz-poll spz-progression spz-raceUI
+            spz-races spz-rpc spz-spawn spz-speedometer spz-stance
+            spz-vehfunc spz-vehicles
+          )
+
+          NOTES="## Resource Versions\n\n| Resource | Version |\n|---|---|\n"
+          for r in "${RESOURCES[@]}"; do
+            v=$(extract "$r")
+            NOTES+="| \`$r\` | $v |\n"
+          done
+
+          echo "versions_table<<EOF" >> $GITHUB_OUTPUT
+          printf "$NOTES" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      # ── Generate changelog from git log since last tag ──────────
+      - name: Generate changelog
+        id: changelog
+        run: |
+          LAST_TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "")
+
+          if [ -z "$LAST_TAG" ]; then
+            LOG=$(git log --oneline --no-merges --format="- %s (\`%h\`)" | head -40)
+            SINCE="initial commit"
+          else
+            LOG=$(git log "${LAST_TAG}..HEAD" --oneline --no-merges --format="- %s (\`%h\`)" | head -40)
+            SINCE="$LAST_TAG"
+          fi
+
+          # Group by resource prefix (e.g. "feat(spz-races):")
+          BODY="## What's Changed\n\n"
+          BODY+="_Since ${SINCE}_\n\n"
+
+          if [ -z "$LOG" ]; then
+            BODY+="No new commits since last release.\n"
+          else
+            BODY+="$LOG\n"
+          fi
+
+          echo "body<<EOF" >> $GITHUB_OUTPUT
+          printf "$BODY" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      # ── Package each resource ────────────────────────────────────
+      # UI resources: only ship lua scripts + ui/dist/ (no src, no node_modules)
+      # Lua-only resources: ship everything except .git
+      - name: Package resources
+        run: |
+          mkdir -p release-artifacts
+
+          UI_MAP=(
+            "spz-carspawner:ui"
+            "spz-leaderboard:ui"
+            "spz-speedometer:ui"
+            "spz-nametag:ui"
+            "spz-spawn:ui"
+            "spz-poll:ui"
+            "spz-raceUI:ui"
+            "spz-stance:html"
+          )
+
+          for entry in "${UI_MAP[@]}"; do
+            r="${entry%%:*}"
+            ui_dir="${entry##*:}"
+            TMP="release-artifacts/$r"
+            mkdir -p "$TMP"
+
+            # Copy everything except the UI source tree and .git
+            rsync -a \
+              --exclude='.git' \
+              --exclude="$ui_dir/src/" \
+              --exclude="$ui_dir/public/" \
+              --exclude="$ui_dir/node_modules/" \
+              --exclude="$ui_dir/package.json" \
+              --exclude="$ui_dir/package-lock.json" \
+              --exclude="$ui_dir/vite.config.ts" \
+              --exclude="$ui_dir/tsconfig*.json" \
+              --exclude="$ui_dir/index.html" \
+              "$r/" "$TMP/"
+
+            (cd release-artifacts && zip -rq "${r}.zip" "$r")
+            rm -rf "$TMP"
+            echo "Packaged: ${r}.zip (dist only)"
+          done
+
+          LUA_RESOURCES=(
+            spz-core spz-identity spz-lib spz-races
+            spz-progression spz-physics spz-vehicles spz-nos
+            spz-log spz-rpc spz-vehfunc
+          )
+          for r in "${LUA_RESOURCES[@]}"; do
+            [ -d "$r" ] || continue
+            TMP="release-artifacts/$r"
+            rsync -a --exclude='.git' --exclude='node_modules' "$r/" "$TMP/"
+            (cd release-artifacts && zip -rq "${r}.zip" "$r")
+            rm -rf "$TMP"
+            echo "Packaged: ${r}.zip"
+          done
+
+      # ── Create GitHub release ────────────────────────────────────
+      - name: Create release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.tag.outputs.tag }}
+          name: "SPZ Race Core ${{ steps.tag.outputs.tag }}"
+          body: |
+            ${{ steps.changelog.outputs.body }}
+
+            ---
+
+            ${{ steps.versions.outputs.versions_table }}
+
+            ---
+
+            > Built from commit `${{ github.sha }}` on branch `${{ github.ref_name }}`
+          files: release-artifacts/*.zip
+          make_latest: true
