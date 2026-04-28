@@ -1,6 +1,19 @@
-# <div align="center">
+<div align="center">
 
-![SPiceZ-Core Banner](https://github.com/SPiceZ21/spz-core-media-kit/blob/main/Banner/spz-core-banner.png?raw=true)
+<img src="https://github.com/SPiceZ21/spz-core-media-kit/blob/main/Banner/wip-banner.png?raw=true" alt="SPiceZ-Core Banner" width="100%"/>
+
+<br/>
+<br/>
+
+**An open source racing core for FiveM — modular, lightweight, and built purely for racing.**
+
+<br/>
+
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-orange.svg?style=flat-square)](https://www.gnu.org/licenses/gpl-3.0)
+[![FiveM](https://img.shields.io/badge/FiveM-Compatible-orange?style=flat-square)](https://fivem.net)
+[![Lua](https://img.shields.io/badge/Lua-5.4-blue?style=flat-square&logo=lua)](https://lua.org)
+[![Status](https://img.shields.io/badge/Status-In%20Development-yellow?style=flat-square)]()
+[![Discord](https://img.shields.io/badge/Discord-Join-5865F2?style=flat-square&logo=discord&logoColor=white)](https://discord.gg/)
 
 </div>
 
