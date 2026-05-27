@@ -39,6 +39,7 @@
 | [spz-weather](https://github.com/SPiceZ-Core/spz-weather) | Race‑synced weather & time‑of‑day schedules |
 | [spz-hud](https://github.com/SPiceZ-Core/spz-hud) | Speedometer, race overlay, poll UI, countdown, post‑race stats (React + Vite) |
 | [spz-menu](https://github.com/SPiceZ-Core/spz-menu) | Mode choice screen, freeroam spawner, garage menus |
+| [spz-orb](https://github.com/SPiceZ-Core/spz-orb) | Voice visualizer & circular quick action menu (React + Vite) |
 | [spz-admin](https://github.com/SPiceZ-Core/spz-admin) | Staff panel, force end race, spectate, ban management |
 | [spz-txrecipe](https://github.com/SPiceZ-Core/spz-txrecipe) | txAdmin recipe + auto‑generated `server.cfg` |
 | [.github](https://github.com/SPiceZ-Core/.github) | Org‑wide issue & PR templates, funding docs |
@@ -91,6 +92,7 @@ ensure spz-weather            # optional
 # ── UI ────────────────────────────────────────────────
 ensure spz-hud
 ensure spz-menu
+ensure spz-orb
 
 # ── Admin (always last) ───────────────────────────────
 ensure spz-admin
@@ -130,6 +132,7 @@ ensure spz-admin
 | spz-identity | 🟢 In Development |
 | spz-vehicles | 🟢 In Development |
 | spz-hud | 🟡 Testing |
+| spz-orb | 🟢 In Development |
 | spz-races | 🔵 Designing |
 | spz-progression | ⚪ Planned |
 | spz-weather | ⚪ Planned |
