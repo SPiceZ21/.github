@@ -29,19 +29,31 @@
 
 | Repository | Description |
 |---|---|
-| [spz-core](https://github.com/SPiceZ-Core/spz-core) | Core engine, player sessions, routing bucket manager, event bus |
-| [spz-lib](https://github.com/SPiceZ-Core/spz-lib) | Shared utilities – callbacks, timers, math helpers |
-| [spz-identity](https://github.com/SPiceZ-Core/spz-identity) | Player profiles, driver licenses, crew tags |
-| [spz-vehicles](https://github.com/SPiceZ-Core/spz-vehicles) | Vehicle registry, stat sheets, spawn & despawn |
-| [spz-races](https://github.com/SPiceZ-Core/spz-races) | Lobby system, poll, countdown, checkpoints, timing engine |
-| [spz-progression](https://github.com/SPiceZ-Core/spz-progression) | XP, driver ranks, license unlocks, safety rating |
-| [spz-leaderboard](https://github.com/SPiceZ-Core/spz-leaderboard) | Per‑track records, global standings, session history |
-| [spz-weather](https://github.com/SPiceZ-Core/spz-weather) | Race‑synced weather & time‑of‑day schedules |
-| [spz-hud](https://github.com/SPiceZ-Core/spz-hud) | Speedometer, race overlay, poll UI, countdown, post‑race stats (React + Vite) |
-| [spz-menu](https://github.com/SPiceZ-Core/spz-menu) | Mode choice screen, freeroam spawner, garage menus |
-| [spz-admin](https://github.com/SPiceZ-Core/spz-admin) | Staff panel, force end race, spectate, ban management |
-| [spz-txrecipe](https://github.com/SPiceZ-Core/spz-txrecipe) | txAdmin recipe + auto‑generated `server.cfg` |
-| [.github](https://github.com/SPiceZ-Core/.github) | Org‑wide issue & PR templates, funding docs |
+| [spz-core](https://github.com/SPiceZ21/spz-core) | Core engine, player sessions, routing bucket manager, event bus, database migrations |
+| [spz-identity](https://github.com/SPiceZ21/spz-identity) | Player profiles, driver licenses, crew tags |
+| [spz-appearance](https://github.com/SPiceZ21/spz-appearance) | Outfit persistence and crew uniforms on top of `fivem-appearance` |
+| [spz-spawn](https://github.com/SPiceZ21/spz-spawn) | Spawn menu, idle animation, cinematic spawn camera |
+| [spz-vehicles](https://github.com/SPiceZ21/spz-vehicles) | Vehicle registry, stat sheets, customization persistence |
+| [spz-races](https://github.com/SPiceZ21/spz-races) | Queue, poll, countdown, checkpoints, timing engine, time trial |
+| [spz-progression](https://github.com/SPiceZ21/spz-progression) | XP, driver ranks, license unlocks, safety rating |
+| [spz-leaderboard](https://github.com/SPiceZ21/spz-leaderboard) | Per‑track records, global standings, session history |
+| [spz-raceUI](https://github.com/SPiceZ21/spz-raceUI) | Race overlay, 3D checkpoint pill, player list, post‑race stats |
+| [spz-poll](https://github.com/SPiceZ21/spz-poll) | Track vote UI between race cycles |
+| [spz-nametag](https://github.com/SPiceZ21/spz-nametag) | Minimal 3D player nameplates |
+| [spz-speedometer](https://github.com/SPiceZ21/spz-speedometer) | Speedometer HUD |
+| [spz-speedcam](https://github.com/SPiceZ21/spz-speedcam) | Speed cameras, personal bests, global records |
+| [spz-physics](https://github.com/SPiceZ21/spz-physics) | Standalone powertrain sim — torque curves, gears, clutch, rev limiter, PP rating |
+| [spz-carspawner](https://github.com/SPiceZ21/spz-carspawner) | ox_lib vehicle spawn menu |
+| [spz-carfx](https://github.com/SPiceZ21/spz-carfx) | Custom vehicle particle effects |
+| [spz-nos](https://github.com/SPiceZ21/spz-nos) | Nitrous system |
+| [spz-vehfunc](https://github.com/SPiceZ21/spz-vehfunc) | Vehicle functions — indicators and lights |
+| [spz-fpscap](https://github.com/SPiceZ21/spz-fpscap) | 60 FPS fairness cap |
+| [spz-loading](https://github.com/SPiceZ21/spz-loading) | Loading screen (local video + audio) |
+| [spz-rpc](https://github.com/SPiceZ21/spz-rpc) | Discord rich presence |
+| [spz-log](https://github.com/SPiceZ21/spz-log) | Logging system |
+| [spz-ui](https://github.com/SPiceZ21/spz-ui) | Shared UI components consumed at build time by the NUI resources |
+| [spz-txrecipe](https://github.com/SPiceZ21/spz-txrecipe) | txAdmin recipe + auto‑generated `server.cfg` |
+| [.github](https://github.com/SPiceZ21/.github) | Org‑wide issue & PR templates, funding docs |
 
 ---
 
@@ -62,9 +74,9 @@ The repository uses **GitHub Actions** to automate CI, linting, and release publ
 1. Open **txAdmin** → *New Server* → *Remote URL Template*.
 2. Paste the recipe URL:
    ```
-   https://raw.githubusercontent.com/SPiceZ-Core/spz-txrecipe/main/spz-recipe.yaml
+   https://raw.githubusercontent.com/SPiceZ21/spz-txrecipe/main/spz-recipe.yaml
    ```
-3. Follow the wizard – it installs all required dependencies (`oxmysql`, `ox_lib`), pulls every `spz-*` module, and creates the database tables automatically.
+3. Follow the wizard – it installs all required dependencies (`oxmysql`, `ox_lib`, `fivem-appearance`, `pma-voice`) and pulls every `spz-*` module. The database schema applies itself on first boot via spz-core migrations.
 4. Edit `resources/spz-core/config.lua` to fine‑tune your server settings.
 
 ### Manual Install
@@ -74,26 +86,36 @@ Add the following resources to your `server.cfg` **in the exact order**:
 # ── Dependencies ──────────────────────────────────────
 ensure oxmysql
 ensure ox_lib
+ensure fivem-appearance
+ensure pma-voice
 ensure screenshot-basic        # optional
 
-# ── Core ───────────────────────────────────────
-ensure spz-lib
+# ── Core ──────────────────────────────────────────────
+ensure spz-rpc
+ensure spz-loading
 ensure spz-core
-
-# ── Modules ───────────────────────────────────────────
 ensure spz-identity
-ensure spz-vehicles
-ensure spz-progression
-ensure spz-races
-ensure spz-leaderboard
-ensure spz-weather            # optional
+ensure spz-appearance
+ensure spz-spawn
 
-# ── UI ────────────────────────────────────────────────
-ensure spz-hud
-ensure spz-menu
+# ── Racing Modules ────────────────────────────────────
+ensure spz-speedcam
+ensure spz-vehicles
+ensure spz-races
+ensure spz-progression
+ensure spz-nametag
+ensure spz-poll
+ensure spz-raceUI
+ensure spz-leaderboard
+ensure spz-carspawner
+ensure spz-physics
+ensure spz-fpscap
+ensure spz-speedometer
+ensure spz-nos
+ensure spz-vehfunc
 
 # ── Admin (always last) ───────────────────────────────
-ensure spz-admin
+ensure vMenu
 ```
 
 ---
@@ -125,16 +147,24 @@ ensure spz-admin
 
 | Module | Status |
 |---|---|
-| spz-lib | 🟢 In Development |
-| spz-core | 🟢 In Development |
-| spz-identity | 🟢 In Development |
-| spz-vehicles | 🟢 In Development |
-| spz-hud | 🟡 Testing |
-| spz-races | 🔵 Designing |
-| spz-progression | ⚪ Planned |
-| spz-weather | ⚪ Planned |
+| spz-core | 🟡 Testing |
+| spz-identity | 🟡 Testing |
+| spz-appearance | 🟡 Testing |
+| spz-spawn | 🟡 Testing |
+| spz-vehicles | 🟡 Testing |
+| spz-races | 🟡 Testing |
+| spz-raceUI | 🟡 Testing |
+| spz-poll | 🟡 Testing |
+| spz-progression | 🟢 In Development |
+| spz-leaderboard | 🟢 In Development |
+| spz-nametag | 🟡 Testing |
+| spz-speedometer | 🟡 Testing |
+| spz-speedcam | 🟢 In Development |
+| spz-physics | 🟢 In Development (v0.4) |
+| spz-carspawner | 🟡 Testing |
+| spz-nos / spz-vehfunc / spz-carfx | 🟢 In Development |
+| spz-fpscap / spz-loading / spz-rpc | 🟡 Testing |
 | spz-admin | ⚪ Planned |
-| spz-menu | ⚪ Planned |
 | spz-docs | ⚪ Planned |
 
 ---
@@ -143,7 +173,7 @@ ensure spz-admin
 
 We welcome contributions of any kind:
 1. Read the [Contributing Guide](.github/CONTRIBUTING.md).
-2. Check the [Project Board](https://github.com/orgs/SPiceZ-Core/projects/1) for open tasks.
+2. Check the [Project Board](https://github.com/orgs/SPiceZ21/projects/1) for open tasks.
 3. Open an issue before starting large work.
 4. Follow the Lua style guide in each repo’s `CONTRIBUTING.md`.
 
@@ -164,6 +194,6 @@ All SPiceZ‑Core repositories are licensed under the **GNU GPL v3**. See the [L
 
 Built with passion for the FiveM racing community.
 
-**[Docs](https://github.com/SPiceZ-Core/spz-docs) · [Discord](https://discord.gg/) · [Project Board](https://github.com/orgs/SPiceZ-Core/projects/1) · [Contributing](.github/CONTRIBUTING.md)**
+**[Docs](https://github.com/SPiceZ21/spz-docs) · [Discord](https://discord.gg/) · [Project Board](https://github.com/orgs/SPiceZ21/projects/1) · [Contributing](.github/CONTRIBUTING.md)**
 
 </div>
