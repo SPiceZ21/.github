@@ -48,6 +48,7 @@
 | [spz-nos](https://github.com/SPiceZ21/spz-nos) | Nitrous system |
 | [spz-vehfunc](https://github.com/SPiceZ21/spz-vehfunc) | Vehicle functions — indicators and lights |
 | [spz-fpscap](https://github.com/SPiceZ21/spz-fpscap) | 60 FPS fairness cap |
+| [spz-raceline](https://github.com/SPiceZ21/spz-raceline) | Racing-line trainer — paints your line on the road (green throttle / red brake) |
 | [spz-loading](https://github.com/SPiceZ21/spz-loading) | Loading screen (local video + audio) |
 | [spz-rpc](https://github.com/SPiceZ21/spz-rpc) | Discord rich presence |
 | [spz-log](https://github.com/SPiceZ21/spz-log) | Logging system |
@@ -110,6 +111,7 @@ ensure spz-leaderboard
 ensure spz-carspawner
 ensure spz-physics
 ensure spz-fpscap
+ensure spz-raceline
 ensure spz-speedometer
 ensure spz-nos
 ensure spz-vehfunc
@@ -164,6 +166,7 @@ ensure vMenu
 | spz-carspawner | 🟡 Testing |
 | spz-nos / spz-vehfunc / spz-carfx | 🟢 In Development |
 | spz-fpscap / spz-loading / spz-rpc | 🟡 Testing |
+| spz-raceline | 🟢 In Development (v0.1) |
 | spz-admin | ⚪ Planned |
 | spz-docs | ⚪ Planned |
 
