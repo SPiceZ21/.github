@@ -2,96 +2,114 @@
 
 <img src="https://github.com/SPiceZ21/spz-core-media-kit/blob/main/Banner/wip-banner.png?raw=true" alt="SPiceZ-Core Banner" width="100%"/>
 
-<br/>
-<br/>
-
-**An open source racing core for FiveM — modular, lightweight, and built purely for racing.**
-
-<br/>
+**An open-source racing core for FiveM — modular, lightweight, and built purely for racing.**
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-orange.svg?style=flat-square)](https://www.gnu.org/licenses/gpl-3.0)
 [![FiveM](https://img.shields.io/badge/FiveM-Compatible-orange?style=flat-square)](https://fivem.net)
 [![Lua](https://img.shields.io/badge/Lua-5.4-blue?style=flat-square&logo=lua)](https://lua.org)
 [![Status](https://img.shields.io/badge/Status-In%20Development-yellow?style=flat-square)]()
-[![Discord](https://img.shields.io/badge/Discord-Join-5865F2?style=flat-square&logo=discord&logoColor=white)](https://discord.gg/)
 
 </div>
 
 ---
 
-## 🎮 What is SPiceZ-Core?
+## What is SPiceZ-Core?
 
-**SPiceZ-Core** (`spz-*`) is a **racing‑only FiveM framework** built from the ground up for competitive street racing. It follows a **module‑first** architecture: each feature lives in its own repository and can be enabled or disabled independently.
+**SPiceZ-Core** (`spz-*`) is a racing-only FiveM framework built for competitive street
+racing — no jobs, no housing, no crime. Every feature lives in its own repository and can
+be enabled or removed independently; modules talk to each other only through events and
+exports, and the server owns every decision that affects a race result.
 
 ---
 
-## 📦 Current Modules
+## Repositories
 
-| Repository | Description |
+### Framework
+
+| Repository | Version | Purpose |
+|---|---|---|
+| [spz-core](https://github.com/SPiceZ21/spz-core) | `2.0.0` | Bootstrap, sessions, routing buckets, permissions, database migrations |
+| [spz-identity](https://github.com/SPiceZ21/spz-identity) | `1.5.0` | Profiles, citizen IDs, licenses, crews, character creation |
+| [spz-appearance](https://github.com/SPiceZ21/spz-appearance) | `2.0.0` | Ped models, personal outfits, crew uniforms |
+| [spz-spawn](https://github.com/SPiceZ21/spz-spawn) | `2.1.0` | Play menu, spawn points, world entry |
+| [spz-vehicles](https://github.com/SPiceZ21/spz-vehicles) | `2.0.0` | Vehicle registry, classes, spawning, upgrades |
+
+### Racing
+
+| Repository | Version | Purpose |
+|---|---|---|
+| [spz-races](https://github.com/SPiceZ21/spz-races) | `1.9.0` | Race engine — queue, poll, countdown, checkpoints, sectors, results |
+| [spz-progression](https://github.com/SPiceZ21/spz-progression) | `2.1.0` | XP, ranks, SR, iRating, licenses, seasons |
+| [spz-leaderboard](https://github.com/SPiceZ21/spz-leaderboard) | `1.0.0` | Standings, class tables, records, activity |
+| [spz-poll](https://github.com/SPiceZ21/spz-poll) | `1.1.2` | Track and vehicle vote |
+| [spz-raceUI](https://github.com/SPiceZ21/spz-raceUI) | `2.0.0` | Countdown, overlay, splits, post-race stats |
+| [spz-raceline](https://github.com/SPiceZ21/spz-raceline) | `0.4.0` | Racing-line trainer and ghost car |
+| [spz-speedcam](https://github.com/SPiceZ21/spz-speedcam) | `1.0.0` | Speed cameras with records |
+| [spz-betting](https://github.com/SPiceZ21/spz-betting) | `1.0.0` | Live pari-mutuel spectator betting |
+| [spz-spectate](https://github.com/SPiceZ21/spz-spectate) | `1.0.0` | Spectator overlay |
+
+### Vehicle and driving
+
+| Repository | Version | Purpose |
+|---|---|---|
+| [spz-physics](https://github.com/SPiceZ21/spz-physics) | `0.4.0` | Powertrain sim — torque curves, gears, clutch, turbo, LSD, PP rating |
+| [spz-tunners](https://github.com/SPiceZ21/spz-tunners) | `1.0.0` | Keyboard-driven tuning menu |
+| [spz-nos](https://github.com/SPiceZ21/spz-nos) | `1.0.5` | Nitrous (cosmetic) |
+| [spz-carspawner](https://github.com/SPiceZ21/spz-carspawner) | `1.1.0` | ox_lib vehicle spawn menu |
+| [spz-carfx](https://github.com/SPiceZ21/spz-carfx) | `1.0.0` | Custom vehicle particle effects |
+| [spz-vehfunc](https://github.com/SPiceZ21/spz-vehfunc) | `1.0.1` | Indicators, hazards, taunts, idle cam |
+| [spz-speedometer](https://github.com/SPiceZ21/spz-speedometer) | `1.1.2` | Speedometer HUD |
+
+### World and client
+
+| Repository | Version | Purpose |
+|---|---|---|
+| [spz-nametag](https://github.com/SPiceZ21/spz-nametag) | `1.1.6` | 3D player nameplates |
+| [spz-vegetation](https://github.com/SPiceZ21/spz-vegetation) | `1.0.0` | Proximity vegetation streamer |
+| [spz-fpscap](https://github.com/SPiceZ21/spz-fpscap) | `1.0.0` | 60 FPS fairness cap |
+| [spz-loading](https://github.com/SPiceZ21/spz-loading) | `1.2.1` | Loading screen |
+| [spz-rpc](https://github.com/SPiceZ21/spz-rpc) | `1.0.1` | Discord rich presence |
+| [spz-log](https://github.com/SPiceZ21/spz-log) | `1.0.1` | Discord webhook logging |
+
+### Tooling and assets
+
+| Repository | Purpose |
 |---|---|
-| [spz-core](https://github.com/SPiceZ21/spz-core) | Core engine, player sessions, routing bucket manager, event bus, database migrations |
-| [spz-identity](https://github.com/SPiceZ21/spz-identity) | Player profiles, driver licenses, crew tags |
-| [spz-appearance](https://github.com/SPiceZ21/spz-appearance) | Outfit persistence and crew uniforms on top of `fivem-appearance` |
-| [spz-spawn](https://github.com/SPiceZ21/spz-spawn) | Spawn menu, idle animation, cinematic spawn camera |
-| [spz-vehicles](https://github.com/SPiceZ21/spz-vehicles) | Vehicle registry, stat sheets, customization persistence |
-| [spz-races](https://github.com/SPiceZ21/spz-races) | Queue, poll, countdown, checkpoints, timing engine, time trial |
-| [spz-progression](https://github.com/SPiceZ21/spz-progression) | XP, driver ranks, license unlocks, safety rating |
-| [spz-leaderboard](https://github.com/SPiceZ21/spz-leaderboard) | Per‑track records, global standings, session history |
-| [spz-raceUI](https://github.com/SPiceZ21/spz-raceUI) | Race overlay, 3D checkpoint pill, player list, post‑race stats |
-| [spz-poll](https://github.com/SPiceZ21/spz-poll) | Track vote UI between race cycles |
-| [spz-nametag](https://github.com/SPiceZ21/spz-nametag) | Minimal 3D player nameplates |
-| [spz-speedometer](https://github.com/SPiceZ21/spz-speedometer) | Speedometer HUD |
-| [spz-speedcam](https://github.com/SPiceZ21/spz-speedcam) | Speed cameras, personal bests, global records |
-| [spz-physics](https://github.com/SPiceZ21/spz-physics) | Standalone powertrain sim — torque curves, gears, clutch, rev limiter, PP rating |
-| [spz-carspawner](https://github.com/SPiceZ21/spz-carspawner) | ox_lib vehicle spawn menu |
-| [spz-carfx](https://github.com/SPiceZ21/spz-carfx) | Custom vehicle particle effects |
-| [spz-nos](https://github.com/SPiceZ21/spz-nos) | Nitrous system |
-| [spz-vehfunc](https://github.com/SPiceZ21/spz-vehfunc) | Vehicle functions — indicators and lights |
-| [spz-fpscap](https://github.com/SPiceZ21/spz-fpscap) | 60 FPS fairness cap |
-| [spz-raceline](https://github.com/SPiceZ21/spz-raceline) | Racing-line trainer — paints your line on the road (green throttle / red brake) |
-| [spz-loading](https://github.com/SPiceZ21/spz-loading) | Loading screen (local video + audio) |
-| [spz-rpc](https://github.com/SPiceZ21/spz-rpc) | Discord rich presence |
-| [spz-log](https://github.com/SPiceZ21/spz-log) | Logging system |
-| [spz-ui](https://github.com/SPiceZ21/spz-ui) | Shared UI components consumed at build time by the NUI resources |
-| [spz-txrecipe](https://github.com/SPiceZ21/spz-txrecipe) | txAdmin recipe + auto‑generated `server.cfg` |
-| [.github](https://github.com/SPiceZ21/.github) | Org‑wide issue & PR templates, funding docs |
+| [spz-ui](https://github.com/SPiceZ21/spz-ui) | Shared NUI design system consumed at build time |
+| [spz-txrecipe](https://github.com/SPiceZ21/spz-txrecipe) | txAdmin recipe and generated `server.cfg` |
+| [spz-core-media-kit](https://github.com/SPiceZ21/spz-core-media-kit) | Logos, banners, fonts |
+| [.github](https://github.com/SPiceZ21/.github) | Org-wide issue and PR templates, funding docs |
 
 ---
 
-## ⚙️ Workflow Overview
+## Quick start
 
-The repository uses **GitHub Actions** to automate CI, linting, and release publishing:
+### txAdmin recipe (recommended)
 
-- **`ci.yml`** – Runs on every push/PR, checks Lua syntax, runs unit tests (if any) and validates workflow definitions.
-- **`release.yml`** – Triggered when a new tag is pushed. It builds the release assets, creates a GitHub Release, and updates the `spz-txrecipe` YAML with the new version.
-
-> **Note:** All module repositories have their own CI pipelines; the central repo only validates shared assets and documentation.
-
----
-
-## 🚀 Quick Start
-
-### Using the txAdmin Recipe (recommended)
-1. Open **txAdmin** → *New Server* → *Remote URL Template*.
-2. Paste the recipe URL:
+1. txAdmin → **Server Setup** → **Remote URL Template**.
+2. Paste:
    ```
    https://raw.githubusercontent.com/SPiceZ21/spz-txrecipe/main/spz-recipe.yaml
    ```
-3. Follow the wizard – it installs all required dependencies (`oxmysql`, `ox_lib`, `fivem-appearance`, `pma-voice`) and pulls every `spz-*` module. The database schema applies itself on first boot via spz-core migrations.
-4. Edit `resources/spz-core/config.lua` to fine‑tune your server settings.
+3. Follow the wizard — it installs the dependencies (`oxmysql`, `ox_lib`,
+   `fivem-appearance`, `pma-voice`) and every `spz-*` module, and writes `server.cfg` in
+   the right order.
+4. Boot the server. `spz-core` applies its migrations automatically; there is no SQL to
+   import.
 
-### Manual Install
-Add the following resources to your `server.cfg` **in the exact order**:
+### Manual install
+
+Order matters:
 
 ```cfg
-# ── Dependencies ──────────────────────────────────────
+# ── Dependencies ─────────────────────────────
 ensure oxmysql
 ensure ox_lib
 ensure fivem-appearance
 ensure pma-voice
-ensure screenshot-basic        # optional
+ensure screenshot-basic      # optional
 
-# ── Core ──────────────────────────────────────────────
+# ── Core ─────────────────────────────────────
 ensure spz-rpc
 ensure spz-loading
 ensure spz-core
@@ -99,7 +117,7 @@ ensure spz-identity
 ensure spz-appearance
 ensure spz-spawn
 
-# ── Racing Modules ────────────────────────────────────
+# ── Racing ───────────────────────────────────
 ensure spz-speedcam
 ensure spz-vehicles
 ensure spz-races
@@ -115,88 +133,64 @@ ensure spz-raceline
 ensure spz-speedometer
 ensure spz-nos
 ensure spz-vehfunc
+ensure spz-tunners
+ensure spz-spectate
+ensure spz-betting
 
-# ── Admin (always last) ───────────────────────────────
+# ── Admin (last) ─────────────────────────────
 ensure vMenu
 ```
 
 ---
 
-## 🛠️ Tech Stack
+## Design principles
+
+- **No bloat** — racing only.
+- **Module-first** — every feature is a standalone repository.
+- **Event-driven** — modules communicate through events and exports.
+- **Config-driven** — tunables live in each module's `config.lua`.
+- **Server-authoritative** — the client never decides a race outcome.
+- **One schema owner** — all SQL lives in `spz-core/migrations/`.
+
+---
+
+## Tech stack
 
 | Layer | Technology |
 |---|---|
-| Server runtime | FiveM / Cfx‑server |
-| Language | Lua 5.4 |
+| Server runtime | FiveM / Cfx server |
+| Language | Lua 5.4 |
 | Database | MySQL via `oxmysql` |
 | Shared utilities | `ox_lib` |
-| NUI frontend | React 18 + Vite + Framer Motion |
+| NUI frontend | Vite · Preact · TypeScript (`spz-ui`) |
 | World isolation | FiveM routing buckets |
 
 ---
 
-## 🎨 Design Principles
+## Contributing
 
-- **No bloat** – Racing‑only, no jobs/housing/crime.
-- **Module‑first** – Every feature is a standalone repo.
-- **Event‑driven** – Modules communicate exclusively through events/exports.
-- **Config‑driven** – All tunable values live in `config.lua` files; hot‑reload supported.
-- **Server‑authoritative** – Core race logic runs on the server; the client never decides race outcomes.
+1. Check the [Project Board](https://github.com/orgs/SPiceZ21/projects/1) for open tasks.
+2. Open an issue before starting large work.
+3. Keep changes inside one module where possible.
 
----
+Before submitting a PR:
 
-## 📈 Project Status
-
-| Module | Status |
-|---|---|
-| spz-core | 🟡 Testing |
-| spz-identity | 🟡 Testing |
-| spz-appearance | 🟡 Testing |
-| spz-spawn | 🟡 Testing |
-| spz-vehicles | 🟡 Testing |
-| spz-races | 🟡 Testing |
-| spz-raceUI | 🟡 Testing |
-| spz-poll | 🟡 Testing |
-| spz-progression | 🟢 In Development |
-| spz-leaderboard | 🟢 In Development |
-| spz-nametag | 🟡 Testing |
-| spz-speedometer | 🟡 Testing |
-| spz-speedcam | 🟢 In Development |
-| spz-physics | 🟢 In Development (v0.4) |
-| spz-carspawner | 🟡 Testing |
-| spz-nos / spz-vehfunc / spz-carfx | 🟢 In Development |
-| spz-fpscap / spz-loading / spz-rpc | 🟡 Testing |
-| spz-raceline | 🟢 In Development (v0.1) |
-| spz-admin | ⚪ Planned |
-| spz-docs | ⚪ Planned |
+- Test on a local FiveM server with the full stack loaded.
+- Check no other `spz-*` module breaks.
+- Add a new migration rather than editing an applied one.
+- Update the module README and `CHANGELOG.md` when you change an export, event or command.
 
 ---
 
-## 🤝 Contributing
+## License
 
-We welcome contributions of any kind:
-1. Read the [Contributing Guide](.github/CONTRIBUTING.md).
-2. Check the [Project Board](https://github.com/orgs/SPiceZ21/projects/1) for open tasks.
-3. Open an issue before starting large work.
-4. Follow the Lua style guide in each repo’s `CONTRIBUTING.md`.
-
-**Before submitting a PR:**
-- Test on a local FiveM server.
-- Ensure no other `spz-*` module is broken by your change.
-- Update documentation if you modify an export or event.
-
----
-
-## 📄 License
-
-All SPiceZ‑Core repositories are licensed under the **GNU GPL v3**. See the [LICENSE](LICENSE) file for details. You may **not** sell SPiceZ‑Core or its modules as a closed‑source product.
-
----
+All SPiceZ-Core repositories are licensed under the **GNU GPL v3**. You may not sell
+SPiceZ-Core or its modules as a closed-source product.
 
 <div align="center">
 
-Built with passion for the FiveM racing community.
+Built for the FiveM racing community.
 
-**[Docs](https://github.com/SPiceZ21/spz-docs) · [Discord](https://discord.gg/) · [Project Board](https://github.com/orgs/SPiceZ21/projects/1) · [Contributing](.github/CONTRIBUTING.md)**
+**[Project Board](https://github.com/orgs/SPiceZ21/projects/1)**
 
 </div>
