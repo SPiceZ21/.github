@@ -54,7 +54,6 @@ exports, and the server owns every decision that affects a race result.
 |---|---|---|
 | [spz-physics](https://github.com/SPiceZ21/spz-physics) | `0.4.0` | Powertrain sim — torque curves, gears, clutch, turbo, LSD, PP rating |
 | [spz-tunners](https://github.com/SPiceZ21/spz-tunners) | `1.0.0` | Keyboard-driven tuning menu |
-| [spz-nos](https://github.com/SPiceZ21/spz-nos) | `1.0.5` | Nitrous (cosmetic) |
 | [spz-carspawner](https://github.com/SPiceZ21/spz-carspawner) | `1.1.0` | ox_lib vehicle spawn menu |
 | [spz-carfx](https://github.com/SPiceZ21/spz-carfx) | `1.0.0` | Custom vehicle particle effects |
 | [spz-vehfunc](https://github.com/SPiceZ21/spz-vehfunc) | `1.0.1` | Indicators, hazards, taunts, idle cam |
@@ -131,7 +130,6 @@ ensure spz-physics
 ensure spz-fpscap
 ensure spz-raceline
 ensure spz-speedometer
-ensure spz-nos
 ensure spz-vehfunc
 ensure spz-tunners
 ensure spz-spectate
