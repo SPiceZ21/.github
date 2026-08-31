@@ -25,7 +25,7 @@ events and exports, and the server owns every decision that affects a race resul
 - Progression with XP, ranks, Safety Rating, iRating, licenses and a rolling championship
 - Powertrain simulation — torque curves, gears, clutch, turbo, LSD, PP-based class bands
 - Racing-line trainer with ghost cars and record crowns
-- Spectator mode and live pari-mutuel betting
+- Spectator mode and a live race board for everyone outside the race
 - One-click txAdmin deployment; the schema applies itself on first boot
 
 ## Start here

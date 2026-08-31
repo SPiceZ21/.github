@@ -45,7 +45,7 @@ exports, and the server owns every decision that affects a race result.
 | [spz-raceUI](https://github.com/SPiceZ21/spz-raceUI) | `2.0.0` | Countdown, overlay, splits, post-race stats |
 | [spz-raceline](https://github.com/SPiceZ21/spz-raceline) | `0.4.0` | Racing-line trainer and ghost car |
 | [spz-speedcam](https://github.com/SPiceZ21/spz-speedcam) | `1.0.0` | Speed cameras with records |
-| [spz-betting](https://github.com/SPiceZ21/spz-betting) | `1.0.0` | Live pari-mutuel spectator betting |
+
 | [spz-spectate](https://github.com/SPiceZ21/spz-spectate) | `1.0.0` | Spectator overlay |
 
 ### Vehicle and driving
@@ -133,7 +133,6 @@ ensure spz-speedometer
 ensure spz-vehfunc
 ensure spz-tunners
 ensure spz-spectate
-ensure spz-betting
 
 # ── Admin (last) ─────────────────────────────
 ensure vMenu
