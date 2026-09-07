@@ -28,22 +28,22 @@ exports, and the server owns every decision that affects a race result.
 
 | Repository | Version | Purpose |
 |---|---|---|
-| [spz-core](https://github.com/SPiceZ21/spz-core) | `2.0.0` | Bootstrap, sessions, routing buckets, permissions, database migrations |
+| [spz-core](https://github.com/SPiceZ21/spz-core) | `1.0.0` | Bootstrap, sessions, routing buckets, permissions, database migrations |
 | [spz-identity](https://github.com/SPiceZ21/spz-identity) | `1.5.0` | Profiles, citizen IDs, licenses, crews, character creation |
-| [spz-appearance](https://github.com/SPiceZ21/spz-appearance) | `2.0.0` | Ped models, personal outfits, crew uniforms |
-| [spz-spawn](https://github.com/SPiceZ21/spz-spawn) | `2.1.0` | Play menu, spawn points, world entry |
-| [spz-vehicles](https://github.com/SPiceZ21/spz-vehicles) | `2.0.0` | Vehicle registry, classes, spawning, upgrades |
+| [spz-appearance](https://github.com/SPiceZ21/spz-appearance) | `1.0.0` | Ped models, personal outfits, crew uniforms |
+| [spz-spawn](https://github.com/SPiceZ21/spz-spawn) | `1.1.0` | Play menu, spawn points, world entry |
+| [spz-vehicles](https://github.com/SPiceZ21/spz-vehicles) | `1.0.0` | Vehicle registry, classes, spawning, upgrades |
 
 ### Racing
 
 | Repository | Version | Purpose |
 |---|---|---|
 | [spz-races](https://github.com/SPiceZ21/spz-races) | `1.9.0` | Race engine — queue, poll, countdown, checkpoints, sectors, results |
-| [spz-progression](https://github.com/SPiceZ21/spz-progression) | `2.1.0` | XP, ranks, SR, iRating, licenses, seasons |
-| [spz-leaderboard](https://github.com/SPiceZ21/spz-leaderboard) | `1.0.0` | Standings, class tables, records, activity |
+| [spz-progression](https://github.com/SPiceZ21/spz-progression) | `1.1.0` | XP, ranks, SR, iRating, licenses, seasons |
+| [spz-leaderboard](https://github.com/SPiceZ21/spz-leaderboard) | `1.1.0` | Standings, class tables, records, activity |
 | [spz-poll](https://github.com/SPiceZ21/spz-poll) | `1.1.2` | Track and vehicle vote |
-| [spz-raceUI](https://github.com/SPiceZ21/spz-raceUI) | `2.0.0` | Countdown, overlay, splits, post-race stats |
-| [spz-raceline](https://github.com/SPiceZ21/spz-raceline) | `0.4.0` | Racing-line trainer and ghost car |
+| [spz-raceUI](https://github.com/SPiceZ21/spz-raceUI) | `1.0.0` | Countdown, overlay, splits, post-race stats |
+| [spz-raceline](https://github.com/SPiceZ21/spz-raceline) | `1.4.0` | Racing-line trainer and ghost car |
 | [spz-speedcam](https://github.com/SPiceZ21/spz-speedcam) | `1.0.0` | Speed cameras with records |
 
 | [spz-spectate](https://github.com/SPiceZ21/spz-spectate) | `1.0.0` | Spectator overlay |
@@ -52,7 +52,7 @@ exports, and the server owns every decision that affects a race result.
 
 | Repository | Version | Purpose |
 |---|---|---|
-| [spz-physics](https://github.com/SPiceZ21/spz-physics) | `0.4.0` | Powertrain sim — torque curves, gears, clutch, turbo, LSD, PP rating |
+| [spz-physics](https://github.com/SPiceZ21/spz-physics) | `1.4.0` | Powertrain sim — torque curves, gears, clutch, turbo, LSD, PP rating |
 | [spz-tunners](https://github.com/SPiceZ21/spz-tunners) | `1.0.0` | Keyboard-driven tuning menu |
 | [spz-carspawner](https://github.com/SPiceZ21/spz-carspawner) | `1.1.0` | ox_lib vehicle spawn menu |
 | [spz-carfx](https://github.com/SPiceZ21/spz-carfx) | `1.0.0` | Custom vehicle particle effects |
