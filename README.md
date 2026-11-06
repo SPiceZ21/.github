@@ -39,11 +39,8 @@ exports, and the server owns every decision that affects a race result.
 
 | Repository | Version | Purpose |
 |---|---|---|
-| [spz-races](https://github.com/SPiceZ21/spz-races) | `1.9.0` | Race engine — queue, poll, countdown, checkpoints, sectors, results |
+| [spz-races](https://github.com/SPiceZ21/spz-races) | `1.9.0` | Race engine — queue, vote, countdown, checkpoints, sectors, results, race HUD, leaderboard |
 | [spz-progression](https://github.com/SPiceZ21/spz-progression) | `1.1.0` | XP, ranks, SR, iRating, licenses, seasons |
-| [spz-leaderboard](https://github.com/SPiceZ21/spz-leaderboard) | `1.1.0` | Standings, class tables, records, activity |
-| [spz-poll](https://github.com/SPiceZ21/spz-poll) | `1.1.2` | Track and vehicle vote |
-| [spz-raceUI](https://github.com/SPiceZ21/spz-raceUI) | `1.0.0` | Countdown, overlay, splits, post-race stats |
 | [spz-raceline](https://github.com/SPiceZ21/spz-raceline) | `1.4.0` | Racing-line trainer and ghost car |
 | [spz-speedcam](https://github.com/SPiceZ21/spz-speedcam) | `1.0.0` | Speed cameras with records |
 
@@ -120,9 +117,6 @@ ensure spz-vehicles
 ensure spz-races
 ensure spz-progression
 ensure spz-nametag
-ensure spz-poll
-ensure spz-raceUI
-ensure spz-leaderboard
 ensure spz-carspawner
 ensure spz-physics
 ensure spz-fpscap
