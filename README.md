@@ -33,6 +33,7 @@ exports, and the server owns every decision that affects a race result.
 | [spz-appearance](https://github.com/SPiceZ21/spz-appearance) | `1.0.0` | Ped models, personal outfits, crew uniforms |
 | [spz-spawn](https://github.com/SPiceZ21/spz-spawn) | `1.1.0` | Play menu, spawn points, world entry |
 | [spz-vehicles](https://github.com/SPiceZ21/spz-vehicles) | `1.0.0` | Vehicle registry, classes, spawning, upgrades |
+| [spz-discord](https://github.com/SPiceZ21/spz-discord) | `2.0.0` | Discord: race feeds, logs, rich presence, whitelist, role-based admin |
 
 ### Racing
 
@@ -67,8 +68,6 @@ exports, and the server owns every decision that affects a race result.
 | [spz-vegetation](https://github.com/SPiceZ21/spz-vegetation) | `1.0.0` | Proximity vegetation streamer |
 | [spz-fpscap](https://github.com/SPiceZ21/spz-fpscap) | `1.0.0` | 60 FPS fairness cap |
 | [spz-loading](https://github.com/SPiceZ21/spz-loading) | `1.2.1` | Loading screen |
-| [spz-rpc](https://github.com/SPiceZ21/spz-rpc) | `1.0.1` | Discord rich presence |
-| [spz-log](https://github.com/SPiceZ21/spz-log) | `1.0.1` | Discord webhook logging |
 
 ### Tooling and assets
 
@@ -109,7 +108,6 @@ ensure pma-voice
 ensure screenshot-basic      # optional
 
 # ── Core ─────────────────────────────────────
-ensure spz-rpc
 ensure spz-loading
 ensure spz-core
 ensure spz-identity
