@@ -49,7 +49,7 @@ exports, and the server owns every decision that affects a race result.
 |---|---|---|
 | [spz-physics](https://github.com/SPiceZ21/spz-physics) | `1.4.0` | Powertrain sim — torque curves, gears, clutch, turbo, LSD, PP rating |
 | [spz-carfx](https://github.com/SPiceZ21/spz-carfx) | `1.0.0` | Custom vehicle particle effects |
-| [spz-speedometer](https://github.com/SPiceZ21/spz-speedometer) | `1.1.2` | Speedometer HUD |
+| [spz-hud](https://github.com/SPiceZ21/spz-hud) | `0.1.0` | Every UI on one page: race HUD, speedometer, pause menu, TAB hub, layout editor |
 
 ### World and client
 
@@ -102,6 +102,7 @@ ensure screenshot-basic      # optional
 ensure spz-loading
 ensure spz-core
 ensure spz-identity
+ensure spz-hud
 ensure spz-appearance
 ensure spz-spawn
 
@@ -112,7 +113,6 @@ ensure spz-nametag
 ensure spz-physics
 ensure spz-fpscap
 ensure spz-raceline
-ensure spz-speedometer
 
 # ── Admin (last) ─────────────────────────────
 ensure vMenu
