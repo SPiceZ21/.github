@@ -32,7 +32,7 @@ exports, and the server owns every decision that affects a race result.
 | [spz-identity](https://github.com/SPiceZ21/spz-identity) | `1.5.0` | Profiles, citizen IDs, licenses, crews, character creation |
 | [spz-appearance](https://github.com/SPiceZ21/spz-appearance) | `1.0.0` | Ped models, personal outfits, crew uniforms |
 | [spz-spawn](https://github.com/SPiceZ21/spz-spawn) | `1.1.0` | Play menu, spawn points, world entry |
-| [spz-vehicles](https://github.com/SPiceZ21/spz-vehicles) | `1.0.0` | Vehicle registry, classes, spawning, upgrades |
+| [spz-vehicles](https://github.com/SPiceZ21/spz-vehicles) | `1.0.0` | Vehicles: registry, classes, spawning, upgrades, garage, tuner, indicators |
 | [spz-discord](https://github.com/SPiceZ21/spz-discord) | `2.0.0` | Discord: race feeds, logs, rich presence, whitelist, role-based admin |
 
 ### Racing
@@ -51,10 +51,7 @@ exports, and the server owns every decision that affects a race result.
 | Repository | Version | Purpose |
 |---|---|---|
 | [spz-physics](https://github.com/SPiceZ21/spz-physics) | `1.4.0` | Powertrain sim — torque curves, gears, clutch, turbo, LSD, PP rating |
-| [spz-tunners](https://github.com/SPiceZ21/spz-tunners) | `1.0.0` | Keyboard-driven tuning menu |
-| [spz-carspawner](https://github.com/SPiceZ21/spz-carspawner) | `1.1.0` | ox_lib vehicle spawn menu |
 | [spz-carfx](https://github.com/SPiceZ21/spz-carfx) | `1.0.0` | Custom vehicle particle effects |
-| [spz-vehfunc](https://github.com/SPiceZ21/spz-vehfunc) | `1.0.1` | Indicators, hazards, taunts, idle cam |
 | [spz-speedometer](https://github.com/SPiceZ21/spz-speedometer) | `1.1.2` | Speedometer HUD |
 
 ### World and client
@@ -117,13 +114,10 @@ ensure spz-vehicles
 ensure spz-races
 ensure spz-progression
 ensure spz-nametag
-ensure spz-carspawner
 ensure spz-physics
 ensure spz-fpscap
 ensure spz-raceline
 ensure spz-speedometer
-ensure spz-vehfunc
-ensure spz-tunners
 ensure spz-spectate
 
 # ── Admin (last) ─────────────────────────────
