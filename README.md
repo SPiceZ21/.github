@@ -39,12 +39,9 @@ exports, and the server owns every decision that affects a race result.
 
 | Repository | Version | Purpose |
 |---|---|---|
-| [spz-races](https://github.com/SPiceZ21/spz-races) | `1.9.0` | Race engine — queue, vote, countdown, checkpoints, sectors, results, race HUD, leaderboard |
-| [spz-progression](https://github.com/SPiceZ21/spz-progression) | `1.1.0` | XP, ranks, SR, iRating, licenses, seasons |
+| [spz-races](https://github.com/SPiceZ21/spz-races) | `1.9.0` | Race engine — queue, vote, countdown, checkpoints, sectors, results, race HUD, leaderboard, progression, spectate, replays, speed cameras |
 | [spz-raceline](https://github.com/SPiceZ21/spz-raceline) | `1.4.0` | Racing-line trainer and ghost car |
-| [spz-speedcam](https://github.com/SPiceZ21/spz-speedcam) | `1.0.0` | Speed cameras with records |
 
-| [spz-spectate](https://github.com/SPiceZ21/spz-spectate) | `1.0.0` | Spectator overlay |
 
 ### Vehicle and driving
 
@@ -109,16 +106,13 @@ ensure spz-appearance
 ensure spz-spawn
 
 # ── Racing ───────────────────────────────────
-ensure spz-speedcam
 ensure spz-vehicles
 ensure spz-races
-ensure spz-progression
 ensure spz-nametag
 ensure spz-physics
 ensure spz-fpscap
 ensure spz-raceline
 ensure spz-speedometer
-ensure spz-spectate
 
 # ── Admin (last) ─────────────────────────────
 ensure vMenu
