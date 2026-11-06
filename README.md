@@ -49,13 +49,12 @@ exports, and the server owns every decision that affects a race result.
 |---|---|---|
 | [spz-physics](https://github.com/SPiceZ21/spz-physics) | `1.4.0` | Powertrain sim — torque curves, gears, clutch, turbo, LSD, PP rating |
 | [spz-carfx](https://github.com/SPiceZ21/spz-carfx) | `1.0.0` | Custom vehicle particle effects |
-| [spz-hud](https://github.com/SPiceZ21/spz-hud) | `0.1.0` | Every UI on one page: race HUD, speedometer, pause menu, TAB hub, layout editor |
+| [spz-hud](https://github.com/SPiceZ21/spz-hud) | `0.1.0` | Every UI on one page: race HUD, speedometer, pause menu, nametags, chat, emotes, TAB hub, layout editor |
 
 ### World and client
 
 | Repository | Version | Purpose |
 |---|---|---|
-| [spz-nametag](https://github.com/SPiceZ21/spz-nametag) | `1.1.6` | 3D player nameplates |
 | [spz-vegetation](https://github.com/SPiceZ21/spz-vegetation) | `1.0.0` | Proximity vegetation streamer |
 | [spz-fpscap](https://github.com/SPiceZ21/spz-fpscap) | `1.0.0` | 60 FPS fairness cap |
 | [spz-loading](https://github.com/SPiceZ21/spz-loading) | `1.2.1` | Loading screen |
@@ -109,7 +108,6 @@ ensure spz-spawn
 # ── Racing ───────────────────────────────────
 ensure spz-vehicles
 ensure spz-races
-ensure spz-nametag
 ensure spz-physics
 ensure spz-fpscap
 ensure spz-raceline
