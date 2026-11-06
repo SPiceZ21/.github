@@ -28,10 +28,7 @@ exports, and the server owns every decision that affects a race result.
 
 | Repository | Version | Purpose |
 |---|---|---|
-| [spz-core](https://github.com/SPiceZ21/spz-core) | `1.0.0` | Bootstrap, sessions, routing buckets, permissions, database migrations |
-| [spz-identity](https://github.com/SPiceZ21/spz-identity) | `1.5.0` | Profiles, citizen IDs, licenses, crews, character creation |
-| [spz-appearance](https://github.com/SPiceZ21/spz-appearance) | `1.0.0` | Ped models, personal outfits, crew uniforms |
-| [spz-spawn](https://github.com/SPiceZ21/spz-spawn) | `1.1.0` | Play menu, spawn points, world entry |
+| [spz-core](https://github.com/SPiceZ21/spz-core) | `1.0.0` | Bootstrap, sessions, routing buckets, permissions, database migrations, player profiles, appearance, spawning, analytics |
 | [spz-vehicles](https://github.com/SPiceZ21/spz-vehicles) | `1.0.0` | Vehicles: registry, classes, spawning, upgrades, garage, tuner, indicators |
 | [spz-discord](https://github.com/SPiceZ21/spz-discord) | `2.0.0` | Discord: race feeds, logs, rich presence, whitelist, role-based admin |
 
@@ -100,10 +97,7 @@ ensure screenshot-basic      # optional
 # ── Core ─────────────────────────────────────
 ensure spz-loading
 ensure spz-core
-ensure spz-identity
 ensure spz-hud
-ensure spz-appearance
-ensure spz-spawn
 
 # ── Racing ───────────────────────────────────
 ensure spz-vehicles
